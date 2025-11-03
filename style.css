@@ -1,0 +1,203 @@
+/* === Global Styles === */
+body {
+    font-family: "Orbitron", "Poppins", sans-serif;
+    background-color: #050510;
+    margin: 0;
+    padding: 0;
+    color: #e0e0ff;
+    overflow: hidden;
+}
+
+/* === Floating Chat Icon === */
+#chatbot-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: radial-gradient(circle at top left, #00ffff, #6a00ff);
+    color: #fff;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 0 25px #00ffff, 0 0 40px #6a00ff inset;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+#chatbot-icon:hover {
+    transform: scale(1.1) rotate(8deg);
+    box-shadow: 0 0 35px #00ffff, 0 0 60px #6a00ff inset;
+}
+
+/* === Chatbot Container (Centered) === */
+#chatbot-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 730px;
+    background: rgba(10, 10, 25, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3),
+                0 0 50px rgba(106, 0, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeInUp 0.4s ease;
+    z-index: 1000;
+}
+
+/* === Hide Initially === */
+.hidden {
+    display: none !important;
+}
+
+/* === Header === */
+#chatbot-header {
+    background: linear-gradient(135deg, #00ffff33, #6a00ff33);
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    padding: 18px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+#close-btn {
+    background: none;
+    border: none;
+    color: #00ffff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+#close-btn:hover {
+    transform: rotate(90deg);
+    color: #b388ff;
+}
+
+/* === Chatbot Body === */
+#chatbot-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6a00ff #0f0f1f;
+}
+
+/* === Chatbot Messages === */
+#chatbot-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 12px 16px;
+    border-radius: 15px;
+    max-width: 80%;
+    line-height: 1.4;
+    font-size: 15px;
+    animation: slideUp 0.3s ease;
+    word-wrap: break-word;
+}
+
+/* === User Message === */
+.message.user {
+    background: linear-gradient(135deg, #6a00ff, #00ffff);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 0 15px #00ffffa0;
+}
+
+/* === Bot Message === */
+.message.bot {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a8f7ff;
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px #6a00ff80;
+}
+
+/* === Input Section === */
+#chatbot-input-container {
+    display: flex;
+    padding: 12px;
+    border-top: 1px solid rgba(0, 255, 255, 0.15);
+    background-color: rgba(10, 10, 25, 0.7);
+}
+
+#chatbot-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #00ffff;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#chatbot-input:focus {
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #6a00ff;
+}
+
+/* === Send Button === */
+#send-btn {
+    margin-left: 10px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #00ffff, #6a00ff);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px #00ffff80;
+}
+
+#send-btn:hover {
+    background: linear-gradient(135deg, #6a00ff, #00ffff);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00ffff;
+}
+
+/* === Animations === */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
